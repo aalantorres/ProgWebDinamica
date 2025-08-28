@@ -4,10 +4,10 @@ TRABAJOS PRACTICOS DE LA MATERIA PROGRAMACION WEB DINAMICA
 
 # INTEGRANTES 
 
--Alan Torres
+-Alan Lisandro, Torres Rosas FAI-2835
 
--Facundo Morales
+-Facundo Nahuel, Morales FAI-3294
 
 -Lucas Lopez
 
--Rodrigo Almonacid
+-Rodrigo Ulises, Almonacid Medina FAI-4968
