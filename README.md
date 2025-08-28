@@ -8,6 +8,6 @@ TRABAJOS PRACTICOS DE LA MATERIA PROGRAMACION WEB DINAMICA
 
 -Facundo Morales
 
--
+-Lucas Lopez
 
--
+-Rodrigo Almonacid
