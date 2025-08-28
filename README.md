@@ -1,8 +1,8 @@
-# ProgWebDinamica-
+# ProgWebDinamica
 TRABAJOS PRACTICOS DE LA MATERIA PROGRAMACION WEB DINAMICA 
 
 
-# INTEGRANTES -
+# INTEGRANTES 
 
 -Alan Torres
 
