@@ -1,0 +1,32 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 10px;
+    align-items: center;
+    background-color: rgb(207, 207, 250);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 1px 1px 1px 1px rgb(190, 190, 233);
+}
+.subir{
+    width: 150px;
+    display: flex;
+}
+input{
+    width: 200px;
+}
+.datos{
+    background-color: rgb(180, 180, 207);
+    width: 300px;
+    height: 200px;
+    padding-top: 2px;
+}
+.radios{
+    display: flex;
+    flex-direction: column;
+}
+.radios input{
+    width: 20px;
+}
+
