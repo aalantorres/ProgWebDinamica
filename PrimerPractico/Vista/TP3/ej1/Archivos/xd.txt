@@ -1,0 +1,12 @@
+
+
+<link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <script src="../../../js/bootstrap.min.js"></script>
+
+
+
+<script src="./public/js/script.js">
+
+../../../../Control/TP2/ejercicio1/ej3/
+
+
