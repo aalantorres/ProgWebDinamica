@@ -10,6 +10,4 @@
 
 -Facundo Nahuel, Morales FAI-3294
 
--Lucas Lopez
-
 -Rodrigo Ulises, Almonacid Medina FAI-4968
