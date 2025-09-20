@@ -1,0 +1,283 @@
+/* --- General --- */
+body {
+    display: flex;
+    flex-direction: column;
+    background: #edecec;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    justify-content: space-between;
+    min-height: 100dvh;
+}
+
+/* HEADER GENERAL */
+header {
+    width: 100%;                    
+    height: 20dvh;                   /* 20% de la altura de la pantalla */
+    max-height: 150px;              /* no pasa de esta altura */
+    min-height: 80px;               /* tampoco queda demasiado chiquito */
+    display: flex;                  
+    background: #f4f4f4;           
+    border-bottom: 2px solid #ccc;  
+    padding: 5px;
+}
+
+/* LOGO */
+.logo, .integrantes {
+    flex: 0 0 25%;                  /* ocupa aprox 25% del ancho fijo */
+    display: flex;
+    justify-content: center;        /* centrado horizontal */
+    align-items: center;            /* centrado vertical */
+    margin-right: 10px;             /* pequeño margen de separación */
+}
+
+.logo img {
+    height: 90%;                    /* ocupa casi todo el alto del header */
+    width: auto;                    /* mantiene proporciones */
+    object-fit: contain;            /* evita deformaciones */
+}
+
+/* CONTENEDOR DE TITULO Y MENU */
+.header-right {
+    flex: 1;                       /* ocupa el espacio restante */
+    display: flex;
+    flex-direction: column;         /* título arriba, menú abajo */
+    justify-content: space-between; /* reparte espacio vertical */
+}
+
+/* TITULO */
+.titulo {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #333;
+}
+
+main {
+    flex: 1;                  
+    display: flex;            /* centrado */
+    justify-content: center;  /* horizontal */
+    align-items: center;
+}
+
+/* MENU */
+.menu {
+    display: flex;
+    justify-content: flex-end;      /* menú alineado a la derecha */
+    align-items: center;
+    gap: 20px;
+    padding-right: 15px;
+    margin-right: 15%;
+}
+
+.menu nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.menu nav a:hover {
+    color: #007BFF;                 /* color al pasar el mouse */
+}
+
+.menu nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.menu nav li {
+    display: inline;
+    padding: 0 15px 0 15px;
+}
+
+.pantalla-texto{
+    justify-content: flex-start;
+}
+
+/* Footer */
+
+.footer{
+    display: flex;
+    width: 100%;                    
+    height: 20dvh;                   /* 20% de la altura de la pantalla */
+    max-height: 150px;              /* no pasa de esta altura */
+    min-height: 80px;
+    border-top: 2px solid #ccc;
+    margin-bottom: 20px;     
+}
+
+.integrantes{
+    flex-direction: column;
+    padding: auto;
+    margin-bottom: 20px;
+    max-height: 140px;
+    justify-content: space-between;
+}
+
+.integrantes h3 {
+    padding-bottom: 0;    
+}
+
+.leyenda{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 15%;
+}
+
+
+/* --- Contenedor principal --- */
+.contenedor {
+    background: #d6f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #737a7a;
+    max-width: 80dvh;
+    width: 80%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 20px auto;
+}
+
+.contenedor img {
+    width: 50dvh;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    align-items: center;
+}
+.contenedor #patente {
+    align-self: flex-start;
+    max-width: 150px;
+}
+
+.group-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.carpetas, .ejercicios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 80%;
+    padding: auto;
+}
+
+.imagen {
+    padding: auto;
+    margin: 10px;
+}
+
+.imagen a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.carpetas a img, .ejercicios a img {
+    float: left;
+    margin-right: 30px;
+}
+
+.carpetas a img {
+    width: 30dvh;
+    max-width: 150px;
+}
+
+.ejercicios a img {
+    width: 15dvh;
+    max-width: 65px;
+}
+
+.carpetas a:hover {
+    color: #007BFF; 
+}
+
+/* --- Formulario --- */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;   /* para que ocupe todo dentro del contenedor */
+}
+
+/* Títulos y labels */
+.formulario h1,
+.formulario h2,
+.formulario label,
+.group-row label {
+    margin: 0;
+    text-align: center;
+    color: #333;
+}
+
+.formulario h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.formulario h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+/* --- Inputs --- */
+.formulario input[type="text"],
+.group-row input[type="text"],
+.formulario input[type="number"],
+.formulario select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* radios: alineados más prolijos */
+.formulario .radio-group {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    gap: 10px;
+    align-items: flex-start;
+}
+.formulario .radio-group label {
+    font-size: 16px;
+}
+
+/* --- Botones --- */
+.formulario input[type="submit"],
+.contenedor input[type="button"],
+.formulario input[type="button"],
+.formulario button[type="button"], 
+a input[type="button"] {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.formulario input[type="submit"]:hover,
+.contenedor input[type="button"]:hover,
+.formulario a input[type="button"]:hover,
+.formulario button[type="button"]:hover,
+a input[type="button"]:hover {
+    background: #45a049;
+}
