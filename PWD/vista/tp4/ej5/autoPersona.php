@@ -23,7 +23,6 @@
                 </form>
             </div>
         </div>
-        <script src="../../JS/patente.js"></script>
     </main>
 <!-- Incluye footer -->
 <?php

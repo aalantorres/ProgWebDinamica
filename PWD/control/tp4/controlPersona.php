@@ -1,7 +1,7 @@
 <?php
     include_once(__DIR__.'/../../modelo/tp4/Auto.php');
     include_once(__DIR__.'/../../modelo/tp4/Persona.php');
-    include_once('buscarPatente.php');
+    include_once('controlAuto.php');
     
     function verPersonas(){
         $objPersona=new Persona();

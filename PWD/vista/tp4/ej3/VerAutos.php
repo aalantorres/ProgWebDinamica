@@ -15,7 +15,6 @@
             <h1>Base de datos de vehículos</h1>
             <img id="auto" src="../../img/auto.png" alt="Auto">
             <a href="listado.php"><input type="button" value="Consultar"></a>
-            </form>
         </div>
     </main>
 <!-- Incluye footer -->

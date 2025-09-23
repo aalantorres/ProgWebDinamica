@@ -7,7 +7,7 @@
  <?php
     include_once('../../../helpers/tipoAction.php');
     $datosForm=getSubmittedData();
-    include_once('../../../control/tp4/ej5VerPersonas.php');
+    include_once('../../../control/tp4/controlPersona.php');
     $busca=buscarPersona($datosForm['dni']);
     $existe=$busca['encuentra'];
     $persona=$busca['persona'];
