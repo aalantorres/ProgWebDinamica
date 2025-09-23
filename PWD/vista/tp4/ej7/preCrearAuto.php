@@ -29,17 +29,6 @@
         <div class="contenedor">
             <?php
                 if(!$existeAuto && $existePersona){
-                    $patente=$datosForm['dominio'];
-                    if(strlen($patente)==6 || strlen($patente)==7){
-                        $letras=substr($patente, 0, 3);
-                            if(strlen($patente)==6){
-                                $numeros=substr($patente, 3, 3);
-                            }
-                            else{
-                                $numeros=substr($patente, 4, 3);
-                            }
-                        $patente=$letras." ".$numeros;
-                    }
                     ?>
                     <h1>Dueño:</h1>
                     <ul>
@@ -47,10 +36,10 @@
                         <li>Apellido: <?=$apellido?></li>
                         <li>DNI: <?=$datosForm['dni']?></li>
                     </ul>
-                    <h1>Crear vehiculo con Patente <?=$patente?>:</h1>
+                    <h1>Crear vehiculo con Patente <?=$datosForm['dominio']?>:</h1>
                     <div class="group-row">
                         <form class="formulario" action="accionCrearAuto.php" method="post">
-                            <input type="hidden" name="dni" value="<?=$patente?>">
+                            <input type="hidden" name="dni" value="<?=$datosForm['dni']?>">
                             <input type="hidden" name="dominio" value="<?=$datosForm['dominio']?>">
                             <div class="divDatos">
                                 <div class="pares">
@@ -90,7 +79,10 @@
             if(!$existePersona){
                 ?>
                 <h2>No existe la persona con DNI: <?=$datosForm['dni']?>.</h2>
+                <div>
                 <a href="nuevoAuto.php"><input type="button" value="Volver"></a>
+                <a href="../ej6//nuevaPersona.php"><input type="button" value="Crear"></a>
+                </div>
             <?php } ?>
         </div>
     </main>

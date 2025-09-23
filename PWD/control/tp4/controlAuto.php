@@ -48,6 +48,17 @@
         $modelo=$datos['modelo'];
         $marca=$datos['marca'];
         $error="";
+        if(strlen($patente)==6 || strlen($patente)==7){
+            $letras=substr($patente, 0, 3);
+            $letras=strtoupper($letras);
+            if(strlen($patente)==6){
+                $numeros=substr($patente, 3, 3);
+            }
+            else{
+                $numeros=substr($patente, 4, 3);
+            }
+        $patente=$letras." ".$numeros;
+        }
         $objAuto->cargar($patente, $modelo, $marca, $dniDuenio);
         $insertar=$objAuto->insertar();
         if(!$insertar){
