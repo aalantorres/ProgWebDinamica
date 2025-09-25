@@ -19,7 +19,7 @@
                     </label>
                     <div>
                         <input type="submit" value="Buscar">
-                        <a href="../tp4Inicio.php"></a><input type="button" value="Volver"></a>
+                        <a href="../tp4Inicio.php"><input type="button" value="Volver"></a>
                     </div>
                 </form>
         </div>
