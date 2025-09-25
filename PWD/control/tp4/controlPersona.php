@@ -13,9 +13,14 @@
         //Falta validar el dni
         $objPersona=new Persona();
         $encuentra=$objPersona->buscar($dni);
+        $error="";
+        if(!$encuentra){
+            $error="Persona no encontrada";
+        }
         $respuesta=[
             'encuentra'=>$encuentra,
-            'persona'=>$objPersona
+            'persona'=>$objPersona,
+            'error'=>$error
         ];
         return $respuesta;
     }
@@ -60,9 +65,9 @@
 
     function insertarPersona($datos){
         $dni=$datos['dni'];
-        $nombre=$datos['nombre'];
-        $apellido=$datos['apellido'];
-        $domicilio=$datos['domicilio'];
+        $nombre=normalizaTexto($datos['nombre']);
+        $apellido=normalizaTexto($datos['apellido']);
+        $domicilio=normalizaTexto($datos['domicilio']);
         $telefono=$datos['telefono'];
         $fechaNac=$datos['fechaNac'];
         $objPersona=new Persona();
@@ -77,5 +82,42 @@
             "error"=>$error
         ];
         return $respuesta;
+    }
+
+    function actualizaPersona($datos){
+        $dni=trim($datos['dni']);
+        $busca=buscarPersona($datos['dni']);
+        $nombre=normalizaTexto($datos['nombre']);
+        $apellido=normalizaTexto($datos['apellido']);
+        $domicilio=normalizaTexto($datos['domicilio']);
+        $telefono=$datos['telefono'];
+        $fechaNac=$datos['fechaNac'];
+        if($busca['encuentra']){
+            $objPersona=$busca['persona'];
+            if($nombre!=""){
+                $objPersona->setNombre($nombre);
+            }
+            if($apellido!=""){
+                $objPersona->setApellido($apellido);
+            }
+            if($domicilio!=""){
+                $objPersona->setDomicilio($domicilio);
+            }
+            if($telefono!=""){
+                $objPersona->setTelefono($telefono);
+            }
+            if($fechaNac!=""){
+                $objPersona->setNombre($fechaNac);
+            }
+            $actualiza=$objPersona->modificar();
+        }
+    }
+
+    function normalizaTexto($texto){
+    $texto=trim($texto);
+    if($texto!="" && preg_match('/^[A-Za-záéíóúüñÑ\s]+$/u', $texto)){
+        $texto=ucwords(strtolower($texto));
+    }
+    return $texto;
     }
 ?>

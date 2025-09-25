@@ -81,7 +81,7 @@
                 <h2>No existe la persona con DNI: <?=$datosForm['dni']?>.</h2>
                 <div>
                 <a href="nuevoAuto.php"><input type="button" value="Volver"></a>
-                <a href="../ej6//nuevaPersona.php"><input type="button" value="Crear"></a>
+                <a href="../ej6/nuevaPersona.php"><input type="button" value="Crear"></a>
                 </div>
             <?php } ?>
         </div>
