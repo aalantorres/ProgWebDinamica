@@ -18,11 +18,16 @@
                 <form class="formulario" action="accionBuscarPersona.php" method="get">
                     <label for="dni">Ingrese DNI:
                         <input type="number" placeholder="11222333" maxlength="9" name="dni" id="dni" required>
+                        <div id="error"></div>
                     </label>
+                    <div>
                     <input type="submit" value="Consultar">
+                    <a href="../tp4Inicio.php"><input type="button" value="Volver"></a>
+                    </div>
                 </form>
             </div>
         </div>
+        <script src="../../JS/dni.js"></script>
     </main>
 <!-- Incluye footer -->
 <?php

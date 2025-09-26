@@ -1,8 +1,9 @@
 <?php
     include_once(__DIR__.'/../../modelo/tp4/Auto.php');
     include_once(__DIR__.'/../../modelo/tp4/Persona.php');
+    include_once(__DIR__.'/../../helpers/funciones.php');
     include_once('controlAuto.php');
-    
+
     function verPersonas(){
         $objPersona=new Persona();
         $respuesta=$objPersona->listar();
@@ -10,12 +11,20 @@
     }
     
     function buscarPersona($dni){
-        //Falta validar el dni
+        $chekDni=verificaNumero($dni);
+        $encuentra=false;
         $objPersona=new Persona();
-        $encuentra=$objPersona->buscar($dni);
         $error="";
-        if(!$encuentra){
-            $error="Persona no encontrada";
+        if($chekDni['verifica']){
+            $dni=$chekDni['valor'];
+            $encuentra=$objPersona->buscar($dni);
+            if(!$encuentra){
+                $error="Persona no encontrada";
+            }
+        }
+        else{
+            $error="No se ingresó un valor numérico";
+
         }
         $respuesta=[
             'encuentra'=>$encuentra,
@@ -52,7 +61,7 @@
             }
         }
         else{
-            $error="Persona no encontrada";
+            $error=$buscar['error'];
         }
         $respuesta=[
             "encuentra"=>$encuentra,
@@ -72,10 +81,16 @@
         $fechaNac=$datos['fechaNac'];
         $objPersona=new Persona();
         $error="";
-        $objPersona->cargar($nombre, $apellido, $telefono, $fechaNac, $dni, $domicilio);
-        $inserta=$objPersona->insertar();
-        if(!$inserta){
-            $error="No pudo incluirse la persona en la base de datos";
+        $inserta=false;
+        if(verificaNumero($dni)['verifica'] && verificaTexto($nombre)['verifica'] && verificaTexto($apellido)['verifica']){
+            $objPersona->cargar($nombre, $apellido, $telefono, $fechaNac, $dni, $domicilio);
+            $inserta=$objPersona->insertar();
+            if(!$inserta){
+                $error="No pudo incluirse la persona en la base de datos";
+            }
+        }
+        else{
+            $error="Existen campos incorrectos en el formulario";
         }
         $respuesta=[
             "inserta"=>$inserta,

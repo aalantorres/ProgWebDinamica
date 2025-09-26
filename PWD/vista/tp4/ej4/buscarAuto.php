@@ -18,8 +18,12 @@
                 <form class="formulario" action="accionBuscarAuto.php" method="get">
                     <label for="dominio">Ingrese patente:
                         <input type="text" placeholder="AAA 123" minlength="6" maxlength="7" name="dominio" id="dominio" required>
+                        <div id="error"></div>
                     </label>
+                    <div>
                     <input type="submit" value="Consultar">
+                    <a href="../tp4Inicio.php"><input type="button" value="Volver"></a>
+                    </div>
                 </form>
             </div>
         </div>

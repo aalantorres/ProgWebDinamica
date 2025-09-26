@@ -1,6 +1,7 @@
 <?php
     include_once(__DIR__.'/../../modelo/tp4/Auto.php');
     include_once(__DIR__.'/../../modelo/tp4/Persona.php');
+    include_once(__DIR__.'/../../helpers/funciones.php');
 
     function normalizaPatente($patente){
         $normaliza=false;
