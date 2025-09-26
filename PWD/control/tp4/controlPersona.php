@@ -102,8 +102,7 @@
         return $respuesta;
     }
 
-    function actualizaPersona($datos){
-        
+    function actualizaPersona($datos){   
         $busca=buscarPersona($datos['dni']);
         $nombre=normalizaTexto($datos['nombre']);
         $apellido=normalizaTexto($datos['apellido']);

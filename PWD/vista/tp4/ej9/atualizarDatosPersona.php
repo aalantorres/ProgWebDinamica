@@ -8,7 +8,7 @@
     include_once('../../../helpers/tipoAction.php');
     $datosForm=getSubmittedData();
     include_once('../../../control/tp4/controlPersona.php');
-    $actualiza=actualizaPersona($datosForm['dni']);
+    $actualiza=actualizaPersona($datosForm);
 ?>
 </head>
 <body>
