@@ -15,6 +15,7 @@
         $encuentra=false;
         $objPersona=new Persona();
         $error="";
+        $respuesta=[];
         if($chekDni['verifica']){
             $dni=$chekDni['valor'];
             $encuentra=$objPersona->buscar($dni);
@@ -27,9 +28,9 @@
 
         }
         $respuesta=[
-            'encuentra'=>$encuentra,
-            'persona'=>$objPersona,
-            'error'=>$error
+            "encuentra"=>$encuentra,
+            "persona"=>$objPersona,
+            "error"=>$error
         ];
         return $respuesta;
     }
@@ -82,7 +83,9 @@
         $objPersona=new Persona();
         $error="";
         $inserta=false;
-        if(verificaNumero($dni)['verifica'] && verificaTexto($nombre)['verifica'] && verificaTexto($apellido)['verifica']){
+        if(verificaNumero($dni)['verifica'] && verificaTexto($nombre)['verifica'] 
+        && verificaTexto($apellido)['verifica'] && verificaTelefono($telefono)['verifica'] 
+        && verificaCompuesto($domicilio)['verifica']){
             $objPersona->cargar($nombre, $apellido, $telefono, $fechaNac, $dni, $domicilio);
             $inserta=$objPersona->insertar();
             if(!$inserta){
@@ -100,32 +103,42 @@
     }
 
     function actualizaPersona($datos){
-        $dni=trim($datos['dni']);
+        
         $busca=buscarPersona($datos['dni']);
         $nombre=normalizaTexto($datos['nombre']);
         $apellido=normalizaTexto($datos['apellido']);
         $domicilio=normalizaTexto($datos['domicilio']);
         $telefono=$datos['telefono'];
         $fechaNac=$datos['fechaNac'];
+        $actualiza=false;
         if($busca['encuentra']){
             $objPersona=$busca['persona'];
-            if($nombre!=""){
-                $objPersona->setNombre($nombre);
+            if($nombre!="" && verificaTexto($nombre)['verifica']){
+                $objPersona->setNombre(verificaTexto($nombre)['valor']);
             }
-            if($apellido!=""){
-                $objPersona->setApellido($apellido);
+            if($apellido!="" && verificaTexto($apellido)['verifica']){
+                $objPersona->setApellido(verificaTexto($apellido)['valor']);
             }
-            if($domicilio!=""){
-                $objPersona->setDomicilio($domicilio);
+            if($domicilio!="" && verificaCompuesto($domicilio)['verifica']){
+                $objPersona->setDomicilio(verificaCompuesto($domicilio)['valor']);
             }
-            if($telefono!=""){
-                $objPersona->setTelefono($telefono);
+            if($telefono!="" && verificaNumero($telefono)['verifica']){
+                $objPersona->setTelefono(verificaNumero($telefono)['valor']);
             }
             if($fechaNac!=""){
-                $objPersona->setNombre($fechaNac);
+                $objPersona->setFechaNac($fechaNac);
             }
             $actualiza=$objPersona->modificar();
         }
+        $respuesta=[
+            "encuentra"=>$busca['encuentra'],
+            "error"=>$busca['error'],
+            "persona"=>$busca['persona']
+        ];
+        if($actualiza){
+            $respuesta['persona']=$objPersona;
+        }
+        return $respuesta;
     }
 
     function normalizaTexto($texto){

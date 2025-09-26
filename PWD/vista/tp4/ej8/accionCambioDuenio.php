@@ -24,6 +24,7 @@
                 $objAuto=$respuesta['objAuto'];
                 $encuentraAuto=$respuesta['encuentraAuto'];
                 $encuentraPersona=$respuesta['encuentraPersona'];
+                $error=$respuesta['error'];
                 if($modifica){
                     ?>
                         <h2>Cambio de titularidad realizado con exito.</h2>
@@ -40,6 +41,12 @@
                         ?>
                         <h2>Error</h2>
                         <p>No hemos podido encontrar la persona con dni <?=$datosForm['dni']?></p>
+                        <?php
+                    }
+                    if($error!=""){
+                        ?>
+                        <h2>Error</h2>
+                        <p><?=$error?></p>
                         <?php
                     }
                 }

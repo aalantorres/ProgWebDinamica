@@ -14,7 +14,7 @@
                 $numeros=substr($patente, 4, 3);
             }
             if(preg_match('/^[0-9]{3}$/', $numeros) && preg_match('/^[A-Za-z]{3}$/', $letras)){
-                $patente=$letras." ".$numeros;
+                $patente=strtoupper($letras)." ".$numeros;
                 $normaliza=true;
             }
         }
@@ -77,25 +77,39 @@
     }
 
     function transferir($datos){
-        $patente=$datos['dominio'];
-        $dniNuevoDuenio=$datos['dni'];
+        $chekDni=verificaNumero($datos['dni']);
+        $chekPatente=normalizaPatente($datos['dominio']);
+        $patente=$chekPatente['patente'];
+        $dniNuevoDuenio=$chekDni['valor'];
         $objAuto=new Auto();
         $objPersona=new Persona();
-        $buscarAuto=$objAuto->buscar($patente);
-        $buscarPersona=$objPersona->buscar($dniNuevoDuenio);
+        $buscarAuto=false;
+        $buscarPersona=false;
         $modifica=false;
-        if($buscarAuto && $buscarPersona){
-            $objAuto->setObjPersona($objPersona);
-            $modifica=$objAuto->modificar();
-            if($modifica){
-                $buscarAuto=$objAuto->buscar($patente);
+        $error="";
+        if($chekDni['verifica'] && $chekPatente['normaliza']){
+            $buscarAuto=$objAuto->buscar($patente);
+            $buscarPersona=$objPersona->buscar($dniNuevoDuenio);
+            if($buscarAuto && $buscarPersona){
+                $objAuto->setObjPersona($objPersona);
+                $modifica=$objAuto->modificar();
+                if($modifica){
+                    $buscarAuto=$objAuto->buscar($patente);
+                }
+                else{
+                    $error="No pudo realizarse la transferencia";
+                }
             }
+        }
+        else{
+            $error="Datos incorrectos en el formulario";
         }
         $respuesta=[
             "modifica"=>$modifica,
             "encuentraAuto"=>$buscarAuto,
             "encuentraPersona"=>$buscarPersona,
-            "objAuto"=>$objAuto
+            "objAuto"=>$objAuto,
+            "error"=>$error
         ];
         return $respuesta;
     }

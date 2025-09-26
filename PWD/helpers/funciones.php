@@ -24,5 +24,32 @@ function verificaTexto($txt){
     ];
     return $respuesta;
 }
+
+function verificaCompuesto($cadena){
+    $cadena=trim($cadena);
+    $regla='/^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9-\s]+$/';
+    $verifica=false;
+    if(preg_match($regla, $cadena)){
+        $verifica=true;
+    }
+    $respuesta=[
+        "verifica"=>$verifica,
+        "valor"=>$cadena
+    ];
+    return $respuesta;
+}
+
+function verificaTelefono($tel){
+    $tel=trim($tel);
+    $verifica=false;
+    if(preg_match('/^[0-9-\s]+$/', $tel)){
+        $verifica=true;
+    }
+    $respuesta=[
+        "verifica"=>$verifica,
+        "valor"=>$tel
+    ];
+    return $respuesta;
+}
 ?>
 

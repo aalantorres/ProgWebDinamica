@@ -36,7 +36,7 @@
                         <li>Apellido: <?=$apellido?></li>
                         <li>DNI: <?=$datosForm['dni']?></li>
                     </ul>
-                    <h1>Crear vehiculo con Patente <?=$datosForm['dominio']?>:</h1>
+                    <h1>Crear vehiculo con Patente <?=normalizaPatente($datosForm['dominio'])['patente']?>:</h1>
                     <div class="group-row">
                         <form class="formulario" action="accionCrearAuto.php" method="post">
                             <input type="hidden" name="dni" value="<?=$datosForm['dni']?>">
@@ -44,14 +44,17 @@
                             <div class="divDatos">
                                 <div class="pares">
                                     <label for="marca">Marca:
-                                        <input type="text" name="marca" id="marca" required>
+                                        <input type="text" placeholder="Chevrolet Corsa" name="marca" id="marca" required>
+                                        <div id="errorMarca"></div>
                                     </label>
                                     <label for="modelo">Modelo:
-                                        <input type="text" name="modelo" id="modelo" required>
+                                        <input type="text" placeholder="2015 (año)" name="modelo" id="modelo" required>
+                                        <div id="errorModelo"></div>
                                     </label>
                                 </div>
                                 <input type="submit" value="Crear">
                             </div>
+                            <script src="../../JS/auto.js"></script>
                         </form>
                     </div>
             <?php } 

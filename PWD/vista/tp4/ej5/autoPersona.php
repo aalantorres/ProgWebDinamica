@@ -22,7 +22,7 @@
                     </label>
                     <div>
                     <input type="submit" value="Consultar">
-                    <a href="../tp4Inicio.php"><input type="button" value="Volver"></a>
+                    <a href="listaPersonas.php"><input type="button" value="Volver"></a>
                     </div>
                 </form>
             </div>

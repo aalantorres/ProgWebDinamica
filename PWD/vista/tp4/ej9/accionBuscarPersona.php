@@ -49,18 +49,18 @@
                             <div class="divDatos">
                                 <div class="pares">
                                     <label for="nombre">Nombre:
-                                        <input type="text" name="nombre" placeholder="<?=$nombre?>" id="nombre" required>
+                                        <input type="text" name="nombre" placeholder="<?=$nombre?>" id="nombre">
                                     </label>
                                     <label for="apellido">Apellido:
-                                        <input type="text" name="apellido" placeholder="<?=$apellido?>" id="apellido" required>
+                                        <input type="text" name="apellido" placeholder="<?=$apellido?>" id="apellido">
                                     </label>
                                 </div>
                                 <div class="pares">
                                     <label for="telefono">Telefono:
-                                        <input type="text" name="telefono" placeholder="<?=$telefono?>" id="telefono" required>
+                                        <input type="text" name="telefono" placeholder="<?=$telefono?>" id="telefono">
                                     </label>
                                     <label for="fechaNac">Fecha de nacimiento:
-                                        <input type="date" name="fechaNac" value="<?=$anio?>-<?=$mes?>-<?=$dia?>" id="fechaNac" required>
+                                        <input type="date" name="fechaNac" value="<?=$anio?>-<?=$mes?>-<?=$dia?>" id="fechaNac">
                                     </label>
                                 </div>
                                 <div class="pares">

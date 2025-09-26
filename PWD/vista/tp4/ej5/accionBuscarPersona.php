@@ -73,7 +73,7 @@
                         <?php
                     }
                 ?> 
-                <a href="listaPersonas.php"><input type="button" value="Volver"></a>
+                <a href="autoPersona.php"><input type="button" value="Volver"></a>
             </div>
         </div>
     </main>

@@ -16,9 +16,11 @@
                 <form class="formulario" action="preCambioDuenio.php" method="post">
                     <label for="dominio">Ingrese patente:
                         <input type="text" placeholder="AAA 123" minlength="6" maxlength="7" name="dominio" id="dominio" required>
+                        <div id="error"></div>
                     </label>
                     <label for="dni">Ingrese DNI del nuevo titular:
                         <input type="number" placeholder="11222333" min="0" max="99999999" name="dni" id="dni" required>
+                        <div id="errorDni"></div>
                     </label>
                     <div>
                         <input type="submit" value="Transferir">
@@ -27,6 +29,7 @@
                 </form>
         </div>
         <script src="../../JS/patente.js"></script>
+        <script src="../../JS/dni.js"></script>
     </main>
 <!-- Incluye footer -->
 <?php
