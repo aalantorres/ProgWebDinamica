@@ -1,0 +1,7 @@
+las correciones del tp 1/2/3 estan en el repo: https://github.com/aalantorres/TpsPWd
+
+En la base de datos nosotros trabajamos con los datos:
+> baseDatos = "pwd" (poner el nombre que hayan usado para crear la base)
+> usuario = "phpmyadmin" (en xampp por defecto es root)
+> clave = "Patagonia1291" (en xampp por defecto es "")
+Hay un archivo para configurar la ruta de todo el proyecto, que se encuentra en PWD/vista/estructura, es config_dir.php, alli podrán editar la ruta dependiendo de cuál sea la carpeta raiz.
